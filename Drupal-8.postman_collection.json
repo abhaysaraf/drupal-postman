@@ -1,0 +1,945 @@
+{
+	"info": {
+		"_postman_id": "01ed6f8a-a209-43d5-b2ec-57b17d8e8e96",
+		"name": "Drupal-8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "JSON",
+			"item": [
+				{
+					"name": "Collection & Query Filters",
+					"item": [
+						{
+							"name": "D8- JsonAPI- DOT Notations (Path)",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-CSRF-Token",
+										"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/node/article?filter[authorFilter1][condition][path]=uid.name&filter[authorFilter1][condition][value]=admin",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"node",
+										"article"
+									],
+									"query": [
+										{
+											"key": "filter[authorFilter1][condition][path]",
+											"value": "uid.name",
+											"description": "Relationship User Reference"
+										},
+										{
+											"key": "filter[authorFilter1][condition][value]",
+											"value": "admin"
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "filter[tagFilter1][condition][path]",
+											"value": "field_tags.1.name",
+											"description": "Specific index of a relationship this would filter second related resource. Relationship Term Reference. ",
+											"disabled": true
+										},
+										{
+											"key": "filter[tagFilter1][condition][value]",
+											"value": "hola",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Paths use a \"dot notation\" to traverse relationships.\n\nIf a resource has a relationship, you can add a filter against it by concatenating the relationship field name and the relationship's field name with a . (dot)."
+							},
+							"response": []
+						},
+						{
+							"name": "D8- JsonAPI- FILTER Parameter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-CSRF-Token",
+										"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/node/article?filter[titleFilter1][condition][path]=title&filter[titleFilter1][condition][value]=Article One&filter[titleFilter1][condition][operator]=CONTAINS",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"node",
+										"article"
+									],
+									"query": [
+										{
+											"key": "filter[title]",
+											"value": "Article One",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": "",
+											"description": "Try more below combinations",
+											"disabled": true
+										},
+										{
+											"key": "filter[titleFilter1][condition][path]",
+											"value": "title"
+										},
+										{
+											"key": "filter[titleFilter1][condition][value]",
+											"value": "Article One"
+										},
+										{
+											"key": "filter[titleFilter1][condition][operator]",
+											"value": "CONTAINS",
+											"description": "Alternative value %3D(encoded value for '=')"
+										},
+										{
+											"key": "",
+											"value": "",
+											"description": "Try more below combinations",
+											"disabled": true
+										},
+										{
+											"key": "filter[orGroup1][group][conjunction]",
+											"value": "OR",
+											"description": "Value can be AND/OR for grouping conditions",
+											"disabled": true
+										},
+										{
+											"key": "filter[titleFilter2][condition][path]",
+											"value": "title",
+											"disabled": true
+										},
+										{
+											"key": "filter[titleFilter2][condition][value]",
+											"value": "New",
+											"disabled": true
+										},
+										{
+											"key": "filter[titleFilter2][condition][operator]",
+											"value": "CONTAINS",
+											"disabled": true
+										},
+										{
+											"key": "filter[titleFilter2][condition][memberOf]",
+											"value": "orGroup1",
+											"disabled": true
+										},
+										{
+											"key": "filter[tagFilter1][condition][path]",
+											"value": "field_tags.name",
+											"disabled": true
+										},
+										{
+											"key": "filter[tagFilter1][condition][value]",
+											"value": "hola",
+											"disabled": true
+										},
+										{
+											"key": "filter[tagFilter1][condition][memberOf]",
+											"value": "orGroup1",
+											"disabled": true
+										}
+									]
+								},
+								"description": "- Allowed Operators\r\n\\Drupal\\jsonapi\\Query\\EntityCondition::$allowedOperators = [\r\n  '=', '<>',\r\n  '>', '>=', '<', '<=',\r\n  'STARTS_WITH', 'CONTAINS', 'ENDS_WITH',\r\n  'IN', 'NOT IN',\r\n  'BETWEEN', 'NOT BETWEEN',\r\n  'IS NULL', 'IS NOT NULL',\r\n];"
+							},
+							"response": []
+						},
+						{
+							"name": "D8- JsonAPI- FIELDS Parameter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-CSRF-Token",
+										"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/node/article?include=uid&fields[node--article]=uid,title,created&fields[user--user]=name,mail,created",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"node",
+										"article"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "uid"
+										},
+										{
+											"key": "fields[node--article]",
+											"value": "uid,title,created"
+										},
+										{
+											"key": "fields[user--user]",
+											"value": "name,mail,created"
+										}
+									]
+								},
+								"description": "admin/people/permissions\nView user information"
+							},
+							"response": []
+						},
+						{
+							"name": "D8- JsonAPI- SORT Parameter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-CSRF-Token",
+										"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/node/article?sort=created",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"node",
+										"article"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "created",
+											"description": "ASC"
+										},
+										{
+											"key": "sort",
+											"value": "-created",
+											"description": "DESC",
+											"disabled": true
+										},
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										},
+										{
+											"key": "sort[sortAuthorName][path]",
+											"value": "uid.name",
+											"disabled": true
+										},
+										{
+											"key": "sort[sortAuthorName][direction]",
+											"value": "DESC",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "D8- JsonAPI- PAGE Parameter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-CSRF-Token",
+										"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/node/article?page[limit]=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"node",
+										"article"
+									],
+									"query": [
+										{
+											"key": "page[limit]",
+											"value": "2"
+										},
+										{
+											"key": "page[offset]",
+											"value": "2",
+											"description": "Next/Specific Page (Multiple of page['limit'])",
+											"disabled": true
+										}
+									]
+								},
+								"description": "Various pagination links under the 'links' key:\r\n- 'next' link exists, there are more pages\r\n- 'next' link does not exist, you are on the last page\r\n- 'prev' link exists, you are not on the first page\r\n- 'prev' link does not exists, you are on the first page\r\n- Neither 'next' nor 'prev' link exists, there is only one page\r\n\r\n\r\nNote:\r\nEven though there is a page limit of 3, there are only 2 resources! \r\nRead here: https://www.drupal.org/docs/8/modules/jsonapi/pagination#resources-per-page-question"
+							},
+							"response": []
+						},
+						{
+							"name": "D8- JsonAPI- INCLUDE Parameter",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-CSRF-Token",
+										"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/node/article?include=uid,field_tags",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"node",
+										"article"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "uid,field_tags",
+											"description": "Find respective entity object within 'included'"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "JSON:API makes it possible to retrieve multiple resources in a single request, these routes are called \"collection\" routes.\r\n\r\n- Allowed Operators\r\n\\Drupal\\jsonapi\\Query\\EntityCondition::$allowedOperators = [\r\n  '=', '<>',\r\n  '>', '>=', '<', '<=',\r\n  'STARTS_WITH', 'CONTAINS', 'ENDS_WITH',\r\n  'IN', 'NOT IN',\r\n  'BETWEEN', 'NOT BETWEEN',\r\n  'IS NULL', 'IS NOT NULL',\r\n];\r\n\r\n\r\nHEADERS:\r\nThe follow headers are required on all GET request to get a proper JSON:API request and response.\r\nAccept: application/vnd.api+json\r\nContent-Type: application/vnd.api+json\r\n\r\nThe following header is needed for the examples to work:\r\nAuthorization: Basic YXBpOmFwaQ==",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ead765e4-43ac-4c47-8169-403a7439d28f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "03db48fc-aa09-44a0-90e9-2a7eebac8b2a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Config",
+					"item": [
+						{
+							"name": "D8- JsonAPI- List Menus",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/menu/menu",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"menu",
+										"menu"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "D8- JsonAPI- Menu",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/d8/jsonapi/menu/menu/b88083a0-1cba-47d5-93f8-f15507896ecf",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"d8",
+										"jsonapi",
+										"menu",
+										"menu",
+										"b88083a0-1cba-47d5-93f8-f15507896ecf"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "D8- Node- Create Entity [JsonAPI]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-CSRF-Token",
+								"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": {\r\n    \"type\": \"node--article\",\r\n    \"attributes\": {\r\n      \"title\": \"Hello New World\",\r\n      \"body\": {\r\n        \"value\": \"Custom value\",\r\n        \"format\": \"plain_text\"\r\n      }\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/d8/jsonapi/node/article",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"d8",
+								"jsonapi",
+								"node",
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D8- Node- List Articles [JsonAPI]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/d8/jsonapi/node/article",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"d8",
+								"jsonapi",
+								"node",
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D8- Node- Get Entity JsonAPI",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/d8/jsonapi/node/article/98b268de-93c8-4143-81fe-5aa11977a77f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"d8",
+								"jsonapi",
+								"node",
+								"article",
+								"98b268de-93c8-4143-81fe-5aa11977a77f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D8- Delete Node Entity JsonAPI",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-CSRF-Token",
+								"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/d8/jsonapi/node/article/9c493381-6d91-44f8-b021-24adcf4b3e34",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"d8",
+								"jsonapi",
+								"node",
+								"article",
+								"9c493381-6d91-44f8-b021-24adcf4b3e34"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D8- Update Node Entity JsonAPI",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "X-CSRF-Token",
+								"value": "UNVb3rdFA-h7xTagUjCG6Yh6Zl1_0TlAdBFnDt6vF2s"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"data\": {\r\n    \"type\": \"node--article\",\r\n    \"id\": \"98b268de-93c8-4143-81fe-5aa11977a77f\",\r\n    \"attributes\": {\r\n      \"title\": \"Chikkkku Yo1112\"\r\n    }\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/d8/jsonapi/node/article/98b268de-93c8-4143-81fe-5aa11977a77f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"d8",
+								"jsonapi",
+								"node",
+								"article",
+								"98b268de-93c8-4143-81fe-5aa11977a77f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D8- JsonAPI- List Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/d8/jsonapi/user/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"d8",
+								"jsonapi",
+								"user",
+								"user"
+							],
+							"query": [
+								{
+									"key": "filter[anon][condition][path]",
+									"value": "uid",
+									"disabled": true
+								},
+								{
+									"key": "filter[anon][condition][value]",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "filter[anon][condition][operator]",
+									"value": "<>",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "D8- JsonAPI- List User Roles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/d8/jsonapi/user_role/user_role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"d8",
+								"jsonapi",
+								"user_role",
+								"user_role"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- _format=jsonapi is not required\n- Collections are listings of resources. (array result example node/article)\n- Unlike the REST module that comes with Drupal Core, JSON:API does not export Views results. Collections are JSON:APIs API-First replacement for exported \"REST displays\" in Views.\n- \n\nFew things JsonAPI does not do, as these are already provided by Drupal core:\n- /session/token\n- /user/register\n- /user/login\n- /user/login_status\n- /user/logout",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c0bad29a-974b-4a05-a5b9-e6ab150eeb68",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3b8068ce-3443-4089-bad3-90fc86f22409",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "D8- Notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "Edit it to find notes",
+					"host": [
+						"Edit it to find notes"
+					]
+				},
+				"description": "Links:\n- https://www.drupal.org/docs/8/modules/jsonapi\n- https://igor.tech/web-services-drupal-8/\n- https://www.drupal.org/docs/8/core/modules/rest/javascript-and-drupal-8-restful-web-services\n"
+			},
+			"response": []
+		},
+		{
+			"name": "USER GET  Session Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/d8/session/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d8",
+						"session",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D8- User- Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"admin\", \"pass\":\"admin\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/d8/user/login?_format=json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d8",
+						"user",
+						"login"
+					],
+					"query": [
+						{
+							"key": "_format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D8- User- Login Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/d8/user/login_status?_format=json\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d8",
+						"user",
+						"login_status"
+					],
+					"query": [
+						{
+							"key": "_format",
+							"value": "json\n"
+						}
+					]
+				},
+				"description": "Returns 1 for logged on or 0 for logged out."
+			},
+			"response": []
+		},
+		{
+			"name": "D8- User- Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/d8/user/logout?_format=json&token=X-DYffgL2_moeRfmNtSO2gNZDyaO1_XOhAjls8VmkSM",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d8",
+						"user",
+						"logout"
+					],
+					"query": [
+						{
+							"key": "_format",
+							"value": "json"
+						},
+						{
+							"key": "token",
+							"value": "X-DYffgL2_moeRfmNtSO2gNZDyaO1_XOhAjls8VmkSM"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D8- Node- Create Entity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "XKEQMQ5KqSqSBvsVjCVtl2roOHwJWZ2kjtuyUvD_m-0"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"langcode\": [\r\n    {\r\n      \"value\": \"en\"\r\n    }\r\n  ],\r\n  \"type\": [\r\n    {\r\n      \"target_id\": \"article\",\r\n      \"target_type\": \"node_type\"\r\n    }\r\n  ],\r\n  \"title\": [\r\n    {\r\n      \"value\": \"Article One\"\r\n    }\r\n  ],\r\n  \"body\": [\r\n    {\r\n      \"value\": \"Here goes the content of our new node!\",\r\n      \"format\": \"plain_text\"\r\n    }\r\n  ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/d8/entity/node?_format=json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d8",
+						"entity",
+						"node"
+					],
+					"query": [
+						{
+							"key": "_format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D8- Upload File (Field Specific) [Binary]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "80vDm1fd9h7x_w8-beo_BTkBeW8sK5JVicL_LHeSNLc"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream"
+					},
+					{
+						"key": "Content-Disposition",
+						"value": "file; filename=\"filename.jpg\""
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {}
+				},
+				"url": {
+					"raw": "http://localhost:8080/d8/file/upload/node/article/field_image?_format=json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d8",
+						"file",
+						"upload",
+						"node",
+						"article",
+						"field_image"
+					],
+					"query": [
+						{
+							"key": "_format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

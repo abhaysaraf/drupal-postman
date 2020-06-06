@@ -1,0 +1,355 @@
+{
+	"info": {
+		"_postman_id": "91cfa0e4-ab48-44b5-be15-ee21fca31285",
+		"name": "Drupal-7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "D7- Notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "Edit it to find notes",
+					"host": [
+						"Edit it to find notes"
+					]
+				},
+				"description": "#Manage URLS:\n- Domain Used: http://localhost:8080/d7new\n- Endpoint Used: mobile_app\n\n#Required Modules:\n- services\n- rest_server\n\n#Manage Endpoints and Resources:\n- admin/structure/services/list/mobile_app/resources\n\n#Manage HEADERS:\n- Content-Type: application/json\n- X-CSRF-Token: is <token> value returned at user/login\n\n#Manage POST data format\n- form-data: Does not require HEADER Content-Type\n- raw: Requires HEADER Content-Type\n\n#Database:\n- User sessions are manage in 'sessions' table"
+			},
+			"response": []
+		},
+		{
+			"name": "D7- User Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/user/login.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"user",
+						"login.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- User Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-CSRF-Token",
+						"value": "-p0eXZo4OAR07rXCYJUQIsTxqlMm565G-farwCML3rc"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/user/logout.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"user",
+						"logout.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- Create Node Entity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-CSRF-Token",
+						"value": "H0SwIY5PrdAdM2eb1ycpyMns0rk1NNrdKTrMdgPxy1g"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"type\":\"article\",\n\"title\":\"article one\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/node.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"node.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- Create Node Entity [Using Formdata]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "X-CSRF-Token",
+						"value": "-p0eXZo4OAR07rXCYJUQIsTxqlMm565G-farwCML3rc"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "type",
+							"value": "article",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "article one333",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/node.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"node.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- Upload file [Base64]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "dwUY0TvFF6CborkdM1vd_IcWlG8MFJoUg_ke2Ls-ySw"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAGZSURBVDhPdZM/SwNBEMWvElJa2NhY2Vha2FpZC3Z+ADs/gZ1gLRaWfoGgoChRRASLSBCx8R/4Bw2nCdHzNIkaLtE43m/irpe7y8CE3ey8N+/N7jnSIxrfPzJ/8SZn1dbfP+nRk2C73JDBTVfG9ytKEvKlRoKAYjoDdrL3mqxnT/xUIkuA5Kz7KcO5RwuMJ0RL13WtNaEE7DkY3S3JxEElkSM7JUuSWS2qQsOhBPgd2HBl5e5dbj++5LzW0mTtNduaC5dVyawVlYRaMEqAnMn8kx4ObT1ozhy/yNzpq3ZGAUQhh66NEjBgHQYTHVj/uqvdC35gO+bCbnECMGAdpODLHEwdPmsxCtijwtiKzwJsgoA54JliEiB7FKGEc2yC4da6LHBgujEHAAbIHguQsWaQeS/4HyIEdFy+qcviVU0tABjbKysha9MAm7xQL2h3rhEpURvRpBsqDDkWGC7vRq+RH1TwOPpSSFCDBd4BZNzSdMGzr7HrKcMavVISAElXfPNNIN2EJSAgPfKbWsQ3gS1UQUpXbsx07oTILwUAS0WIiUhBAAAAAElFTkSuQmCC",
+							"type": "text"
+						},
+						{
+							"key": "filename",
+							"value": "drupaldrug.png",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/file.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"file.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- Get Node Entity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/node/48.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"node",
+						"48.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- List Node Entities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/node.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"node.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- Update Node Entity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "X-CSRF-Token",
+						"value": "H0SwIY5PrdAdM2eb1ycpyMns0rk1NNrdKTrMdgPxy1g"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"title\": \"article one1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/node/48.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"node",
+						"48.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "D7- Delete Node Entity",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-CSRF-Token",
+						"value": "H0SwIY5PrdAdM2eb1ycpyMns0rk1NNrdKTrMdgPxy1g"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/d7new/mobile_app/node/48.json",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"d7new",
+						"mobile_app",
+						"node",
+						"48.json"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f33c009f-3fda-4b36-8c53-7c432785f5c2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f3e71918-fed6-4982-8de2-637fe6b78b77",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,24 @@
+{
+	"info": {
+		"_postman_id": "1fdab3aa-fde0-4a1b-aa45-2a02801a50b9",
+		"name": "Drupal-9",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "D9- Notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "Edit it to find notes",
+					"host": [
+						"Edit it to find notes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
